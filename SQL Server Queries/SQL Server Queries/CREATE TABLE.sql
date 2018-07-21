@@ -1,0 +1,5 @@
+CREATE TABLE Products
+(
+	ProductID	INT		PRIMARY KEY,
+	Name		[NVARCHAR](50)	NOT NULL
+);
