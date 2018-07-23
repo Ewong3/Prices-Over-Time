@@ -1,2 +1,2 @@
-USE master
+USE PricesOverTime
 CREATE DATABASE [PricesOverTime]
