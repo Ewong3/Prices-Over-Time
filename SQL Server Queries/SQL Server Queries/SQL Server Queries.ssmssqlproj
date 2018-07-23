@@ -1,9 +1,46 @@
-<?xml version="1.0" encoding="utf-8"?>
-<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="SqlWorkbenchSqlProject">
+<?xml version="1.0"?>
+<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="SQL Server Queries">
   <Items>
-    <LogicalFolder Name="Connections" Type="2" />
-    <LogicalFolder Name="Queries" Type="0" />
-    <LogicalFolder Name="Miscellaneous" Type="3" />
-
+    <LogicalFolder Name="Connections" Type="2" Sorted="true">
+      <Items>
+        <ConnectionNode Name="DESKTOP-UIOL4TJ\SQL2016TEST:DESKTOP-UIOL4TJ\Eric">
+          <Created>2018-07-21T17:10:14.3965288-06:00</Created>
+          <Type>SQL</Type>
+          <Server>DESKTOP-UIOL4TJ\SQL2016TEST</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>30</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName />
+        </ConnectionNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Queries" Type="0" Sorted="true">
+      <Items>
+        <FileNode Name="CREATE DATABASE.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-UIOL4TJ\SQL2016TEST:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-UIOL4TJ\SQL2016TEST</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>CREATE DATABASE.sql</FullPath>
+        </FileNode>
+        <FileNode Name="CREATE TABLE.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-UIOL4TJ\SQL2016TEST:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-UIOL4TJ\SQL2016TEST</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>CREATE TABLE.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Test Insert.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-UIOL4TJ\SQL2016TEST:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-UIOL4TJ\SQL2016TEST</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Test Insert.sql</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">
+      <Items />
+    </LogicalFolder>
   </Items>
 </SqlWorkbenchSqlProject>
