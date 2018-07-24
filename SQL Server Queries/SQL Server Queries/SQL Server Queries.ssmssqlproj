@@ -43,6 +43,12 @@
           <AssociatedConnUserName />
           <FullPath>DROP TABLE.sql</FullPath>
         </FileNode>
+        <FileNode Name="SELECT ALL.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-UIOL4TJ\SQL2016TEST:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-UIOL4TJ\SQL2016TEST</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>SELECT ALL.sql</FullPath>
+        </FileNode>
         <FileNode Name="Test Insert.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-UIOL4TJ\SQL2016TEST:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>DESKTOP-UIOL4TJ\SQL2016TEST</AssociatedConnSrvName>

@@ -1,5 +1,5 @@
 USE PricesOverTime
-INSERT INTO Products VALUES (1,'name');
-INSERT INTO Products VALUES (2,'name');
-INSERT INTO Products VALUES (3,'name');
+INSERT INTO Products (Name) VALUES ('name');
+INSERT INTO Products (Name) VALUES ('name');
+INSERT INTO Products (Name) VALUES ('name');
 SELECT * FROM Products;
