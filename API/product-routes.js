@@ -8,8 +8,14 @@ module.exports = {
           const pool = await poolPromise;
           const result = await pool.request().query('SELECT * FROM Products');
 
+          var obj = {};
+          obj['products'] = result.recordsets[0];
+          obj['rows'] = result.rowsAffected[0];
+
           console.log('Return all products');
-          response.send(result);
+          response.status(200);
+          response.contentType('application/json')
+          response.send(JSON.stringify(obj));
 
         } catch (err) {
           console.log(err);
@@ -31,8 +37,14 @@ module.exports = {
           .input('product_id', sql.Int, id)
           .query('SELECT * FROM Products WHERE ProductID = @product_id');
 
+        var obj = {};
+        obj['products'] = result.recordsets[0];
+        obj['rows'] = result.rowsAffected[0];
+
         console.log('Returning product with an id of ' + id);
-        response.send(result);
+        response.status(200);
+        response.contentType('application/json')
+        response.send(JSON.stringify(obj));
 
       } catch (err) {
         console.log(err);
@@ -46,16 +58,23 @@ module.exports = {
     // Add a new product into the database
     app.post('/Products', async (request, response) => {
       try {
-        var productName = request.body.name;
+        var name = request.body.name;
 
         const pool = await poolPromise;
         // Add new product
 
         const result = await pool.request()
-          .input('product_name', sql.NVarChar(50), productName)
-          .query('INSERT INTO Products (Name) VALUES ( @product_name )');
-        console.log('Added ' + productName + ' as a new product');
-        response.send(result);
+          .input('product_name', sql.NVarChar(50), name)
+          .query('INSERT INTO Products (Name) OUTPUT Inserted.ProductID, Inserted.Name VALUES ( @product_name )');
+
+        var obj = {};
+        obj['products'] = result.recordsets[0];
+        obj['rows'] = result.rowsAffected[0];
+
+        console.log('Added ' + name + ' as a new product');
+        response.status(200);
+        response.contentType('application/json')
+        response.send(JSON.stringify(obj));
 
       } catch (err) {
         console.log(err);
@@ -69,18 +88,25 @@ module.exports = {
     // Update an existing product in database
     app.put('/Products', async (request, response) => {
       try {
-        var id = request.body.name;
+        var name = request.body.name;
+        var id = request.body.id;
 
         const pool = await poolPromise;
         // Update existing product
 
-        /*  TODO
         const result = await pool.request()
-          .input('product_name', sql.NVarChar(50), productName)
-          .query('INSERT INTO Products (Name) VALUES ( @product_name )');
-        console.log('Added ' + productName + ' as a new product');
-        response.send(result);
-        */
+          .input('product_name', sql.NVarChar(50), name)
+          .input('product_id', sql.Int, id)
+          .query('UPDATE Products SET Name = @product_name OUTPUT Inserted.ProductID, Inserted.Name WHERE ProductID = @product_id');
+
+        var obj = {};
+        obj['products'] = result.recordsets[0];
+        obj['rows'] = result.rowsAffected[0];
+
+        console.log('Updated product ' + id + ' as ' + name);
+        response.status(200);
+        response.contentType('application/json')
+        response.send(JSON.stringify(obj));
 
       } catch (err) {
         console.log(err);
@@ -92,20 +118,25 @@ module.exports = {
 
   deleteProduct : function(app, sql, poolPromise) {
     // Delete an existing product in database
-    app.delete('/Products/:id', async (request, response) => {
+    app.delete('/Products', async (request, response) => {
       try {
-        var id = request.body.name;
+        var id = request.body.id;
 
         const pool = await poolPromise;
         // Delete existing product
 
-        /* TODO
         const result = await pool.request()
-          .input('product_name', sql.NVarChar(50), productName)
-          .query('INSERT INTO Products (Name) VALUES ( @product_name )');
-        console.log('Added ' + productName + ' as a new product');
-        response.send(result);
-        */
+          .input('product_id', sql.NVarChar(50), id)
+          .query('DELETE FROM Products OUTPUT Deleted.ProductID, Deleted.Name WHERE ProductID = @product_id');
+
+        var obj = {};
+        obj['products'] = result.recordsets[0];
+        obj['rows'] = result.rowsAffected[0];
+
+        console.log('Deleted product ' + id);
+        response.status(200);
+        response.contentType('application/json')
+        response.send(JSON.stringify(obj));
 
       } catch (err) {
         console.log(err);
