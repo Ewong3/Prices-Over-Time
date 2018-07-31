@@ -16,5 +16,5 @@ productRoutes.deleteProduct(app, sql, poolPromise);
 var storeRoutes = require('./store-routes');
 
 var server = app.listen(5000, function () {
-    console.log('Server is running..');
+    console.log('Prices-Over-Time API server is running..');
 });
