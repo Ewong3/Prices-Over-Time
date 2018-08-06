@@ -1,3 +1,12 @@
+API
+-----
 npm install mssql
 npm install express
 npm install body-parser
+
+APP
+-----
+npm install express
+npm install body-parser
+npm install consolidate
+npm install handlebars
