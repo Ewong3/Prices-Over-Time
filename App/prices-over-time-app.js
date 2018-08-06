@@ -16,16 +16,9 @@ app.use(parser.urlencoded({extended : true}));
 
 app.set('views', path.join(__dirname, 'html'));
 
-app.get('/Products', (request, response) => {
-  response.render('product.html');
-});
-
-app.get('/Product/:id', (request, response) => {
-  var id = request.params.id;
-
-  response.render('product.html', { id : id });
-});
-
+var productRoutes = require('./js/routes/product-routes');
+productRoutes.productsPage(app);
+productRoutes.productPage(app);
 
 https://stackoverflow.com/questions/19254029/angularjs-http-post-does-not-send-data
 var server = app.listen(5001, function () {
