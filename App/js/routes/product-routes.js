@@ -2,7 +2,7 @@ module.exports = {
 
   productsPage : function(app) {
     app.get('/Products', (request, response) => {
-      response.render('product.html');
+      response.render('products.html');
     });
   },
 
