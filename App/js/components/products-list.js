@@ -1,7 +1,8 @@
 class ProductsList extends React.Component {
-  constuctor(props) {
+  constructor(props) {
+    super(props);
     this.state = {
-      data: null,
+      products:[],
       isLoading: true,
     };
   }
@@ -9,9 +10,36 @@ class ProductsList extends React.Component {
   componentDidMount() {
     this.setState({isLoading: true});
 
+    // TODO: Replace mock API call
+    /*
     fetch()
       .then(response => response.json())
       .then(data => this.setState({ data, isLoading: false }));
+    */
+
+    var obj = {
+      "products" : [
+        {
+          "ProductID" : 1,
+          "Name" : "Banana"
+        },
+        {
+          "ProductID" : 2,
+          "Name" : "Apple"
+        },
+        {
+          "ProductID" : 3,
+          "Name" : "Lemon"
+        }
+      ],
+      "rows" : 3
+    };
+
+    this.setState({
+      products : obj.products,
+      isLoading: false
+    });
+
   }
 
   render() {
@@ -26,17 +54,51 @@ class ProductsList extends React.Component {
     let table = []
 
     table.push(
-      <tr>
-        <th> Product Name </th>
-      </tr>
+      <thead>
+        <tr>
+          <th> Product Name </th>
+        </tr>
+      </thead>
     )
 
+    if (this.state.isLoading) {
+      table.push(
+        <tbody>
+          <tr>
+            <td>
+              No Products Found
+            </td>
+          </tr>
+        </tbody>
+      )
 
+    } else {
+      table.push(
+        <tbody>
+          {this.createTableRow()}
+        </tbody>
+      )
+    }
 
     return table;
   }
 
-
+  createTableRow() {
+    var tableBody = [];
+    var products = this.state.products;
+    
+    for(var i = 0; i < products.length; i++) {
+      console.log(products[i].Name);
+      tableBody.push(
+        <tr>
+          <td>
+            {products[i].Name}
+          </td>
+        </tr>
+      )
+    }
+    return tableBody;
+  }
 }
 
-ReactDom.render(<ProductList/>, document.getElementById('product-list'));
+ReactDOM.render(<ProductsList/>, document.getElementById('product-list'));

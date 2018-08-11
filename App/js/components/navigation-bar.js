@@ -11,4 +11,4 @@ class NavigationBar extends React.Component {
   }
 }
 
-ReactDOM.render(<NavigationBar/>, document.getElementById('navbar'));
+ReactDOM.render(<NavigationBar/>, document.getElementById('nav-bar'));
